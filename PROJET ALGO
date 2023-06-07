@@ -1,0 +1,101 @@
+LE CODE DU PROJET:
+#include<stdio.h>
+typedef struct{
+	float note_cc;
+	float note_exam;
+	float moyenne;
+}module;
+typedef struct{
+	module d[7];
+}semestre;
+typedef struct{
+	char jour[10];
+	char mois[10];
+	char annee[10];
+}date;
+typedef struct{
+	char matricule[20];
+	char nom[20];
+	char prenom[20];
+	date date_de_naissance;
+	date date_inscription;
+	semestre s;
+}etudiant;
+void eleve(int n){
+	etudiant m[n];
+	for(i=0;i<n;i++){
+	printf("saisir votre matricule\n");
+	scanf("%s",m[i].matricule);
+	printf("saisir votre nom\n");
+	scanf("%s",m[i].nom);
+	printf("saisir votre prenom\n");
+	scanf("%s",m[i].prenom);
+	printf("saisir votre date de naissance\n");
+	scanf("%s  %s  %s",m[i].date_de_naissance.jour,m[i].date_de_naissance.mois,m[i].date_de_naissance.annee);
+	printf("saisir votre date inscription\n");
+	scanf("%s  %s  %s",m[i].date_inscription.jour,m[i].date_inscription.mois,m[i].date_inscription.annee);
+}
+}
+void note(){
+	etudiant m;
+	int i,j;
+	for(i=0;i<7;i++){
+		printf("entrez votre note cc dans le module %d \n",i+1);
+		scanf("%f",&etudiant.s.d[i].note_cc);
+	    printf("entrez votre note d examen dans le module %d \n",i+1);
+		scanf("%f",&etudiant.s.d[i].note_exam);
+		etudiant[i].s.d[j].moyenne = (etudiant[i].s.d[j].note_cc + etudiant[i].s.d[j].note_exam) / 2;
+	}
+}
+void moyenne(etudiant m){
+	int i;
+	float moyenne_gen,s;
+	s=0;
+	for(i=0;i<7;i++){
+		s=s+m.s.d[i].moyenne;
+	}
+	moyenne_gen=s/7;
+	printf("ta moyenne generale est:%f \n",moyenne_gen)
+}
+void sup_a_10(){
+	int i,j;
+	printf(" les etudiants qui ont la moyenne sup a 10 sont: \n");
+	for(i=0;i<n;i++){
+	if(moyenne(m[i])>=10){
+		printf("%s %s  \n",m[i].nom,m[i].prenom);
+	}
+	}
+}
+ void pourcentage() {
+    int i,p,pourcentage;
+    p=0;
+    for (i=0;i<n;i++) {
+        if (moyenne(etudiant[i]) >= 10) {
+            p++;
+        }
+    }
+    pourcentage=(p*100)/n;
+    printf("%d % des etudiant ont l annee",pourcentage);
+    }
+    void pourcentages() {
+    int i,k,pourcentages;
+    k=0;
+    for (i=0;i<n;i++) {
+        if (moyenne(etudiant[i])<10) {
+            k++;
+        }
+    }
+    pourcentages=(k*100)/n;
+    printf("%d % des etudiant ont pas l annee",pourcentages);
+    }
+int main(){
+	int n;
+	printf("saisir le nombre d eleve");
+	scanf("%d",n);
+	eleve(n);
+	for(i=0;i<n;i++){
+		note(m[n]);
+		moyenne(m[n]);
+	}
+	sup_a_10(n);
+}
